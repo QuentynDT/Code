@@ -166,6 +166,48 @@ Password for level 12:
     
     JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
 
+## Level 12 -> Level 13
+
+The file has been heavily compressed. First we must create a temporary directory using /tmp/modnar and copy the file there using the cp command. Then, we revert the hexdump (hex1) to get the actual data (datax). This file can be determined to be a gzip file due to the first bytes being 1f8b. The file is converted to a .gz file and decompressed.  This file can then be determined to be a bzip2 file due to the first bytes being 425a 68. The file is converted to a .bz2 file and decompressed. This file can then be determined to be a gzip file due to the first bytes being 1f8b. The file is converted to a .gz file and decompressed. The file now has a string in it, data5.bin. It can be extracted using the tar command. We use mv to convert it to a tar file and extract the data5.bin file using -xf. data5.bin seems to contain a file named data6.bin. It can be extracted using the tar command. We can extract the data6.bin file using -xf. data6.bin can be determined to be a bzip2 file due to the first bytes being 425a 68. The file is converted to a .bz2 file and decompressed. This file once again has a string called data8.bin inside it which can be extracted using the tar command. Finally, data8.bin is gzip compressed and can be decompressed the same way. data8 is a text file that is read using the cat command.
+
+### Commands
+
+    ls
+    mkdir /tmp/modnar
+    cp data.txt /tmp/modnar/data
+    cd /tmp/modnar
+    cat data | head
+
+    mv data.txt hex1
+    xxd -r hex1 datax
+    
+    mv datax datax.gz
+    gzip -d datax.gz
+    
+    mv datax datax.bz2
+    bzip2 -d datax.bz2
+
+    mv datax datax.gz
+    gzip -d datax.gz
+
+    mv datax datax.tar
+    tar -xf datax.tar
+
+    tar -xf data5.bin
+
+    bzip2 -d data6.bin
+
+    tar -xf data6.bin.out
+
+    mv data8.bin data8.gz
+    gzip -d data8.gz
+
+    cat data8
+
+Password for level 13:
+    
+    wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+    
 ## Level 13 -> Level 14
 
 The file can only be accessed by a specific user. To solve this, we connect to bandit14 using local host.
