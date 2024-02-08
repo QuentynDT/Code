@@ -101,4 +101,104 @@ Password for level 7:
     
     z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
 
+## Level 7 -> Level 8
+
+Data.txt is a large file. To find the word millionth in it, the grep command is used to find a pattern as follows.
+
+### Commands
+
+    ls
+    grep millionth data.txt
+
+Password for level 8:
+    
+    TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+
+## Level 8 -> Level 9
+
+Data.txt is a large file. To find the line that occurs only once, we use the sort command, then filter for unique lines by using uniq -u as follows.
+
+### Commands
+
+    ls
+    sort data.txt | uniq -u
+
+Password for level 9:
+    
+    EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+
+## Level 9 -> Level 10
+
+Data.txt is a large file. To find the line that is human readable and has several = signs before it, we use the strings command, followed by the grep -o command, then we use the "==*.*" to find all human readable strings after an = sign.
+
+### Commands
+
+    ls
+    strings data.txt | grep -o '==*.*'
+
+Password for level 10:
+    
+    G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+
+## Level 10 -> Level 11
+
+Data.txt is in base64. To decode it, we use the base64 command, followed by cat to print the decoded password.
+
+### Commands
+
+    ls
+    base64 -d data.txt | cat -
+
+Password for level 11:
+    
+    6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+
+## Level 11 -> Level 12
+
+Data.txt is in ROT13. To decode it, we use the tr command to replace one set of characters with another set. The most efficient way to do this is to define the ranges. For example, the range of capital letters is 'A-Z', but the range of capital letters in ROT13 is 'N-ZA-M'.
+
+### Commands
+
+    ls
+    cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+
+Password for level 12:
+    
+    JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+
+## Level 13 -> Level 14
+
+The file can only be accessed by a specific user. To solve this, we connect to bandit14 using local host.
+
+### Commands
+
+    ls
+    ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
+
+Password for level 14:
+    
+N/A
+
+## Level 14 -> Level 15
+
+The intermediate password is stored in the config directory a.k.a. /etc, in bandit password (bandit_pass) in the file named bandit14. Once we find the intermediate password, we can use the ncat command to connect to the port 30000, and submit the intermediate password to get the password.
+
+### Commands
+
+    ls
+    cat /etc/bandit_pass/bandit14
+    nc localhost 30000
+
+Intermediate Passwword:
+
+    fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+
+Password for level 15:
+    
+    jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+
+
+
+
+
 
