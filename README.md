@@ -75,7 +75,7 @@ Password for level 5:
 
 ## Level 5 -> Level 6
 
-We first use cd inhere to enter the inhere directory. Then, we use ls to view all the files. To check a file that is 1033 bytes in size, not executable, and human readable, we can use the listed command. Now that we know the password is in file2 in the directory maybehere07, we can use cd and cat to read the password. 
+We first use cd inhere to enter the inhere directory. Then, we use ls to view all the files. To check a file that is 1033 bytes in size, not executable, and human readable, we can use the listed command. Now that we know the password is in file2 in the directory maybehere07, we can use cat to read the password. 
 
 ### Commands
 
