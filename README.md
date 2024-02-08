@@ -197,6 +197,60 @@ Password for level 15:
     
     jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
 
+## Level 15 -> Level 16
+
+To use ssl encryption, we use the openssl command. s_client is used to connect to the port via ssl encryption
+
+### Commands
+
+    openssl s_client -connect localhost:30001
+
+Password for level 16:
+    
+    JQttfApK4SeyHwDlI9SXGR50qclOAil1
+
+## Level 16 -> Level 17
+
+We have to connect to any one of the ports from 31000 to 32000. To scan the ports we can use the nmap command. When this command is used, it yields 5 ports. Checking them, we are able to obtain an ssh key. 
+
+### Commands
+
+    nmap localhost -p T:31000-32000
+    openssl s_client -connect localhost:31691
+
+Password for level 17:
+    
+N/A
+
+## Level 17 -> Level 18
+
+We have to connect to the shell using the sshkey. Once connected, we must find the difference between the old and new passwords using diff function. The new line is the password. 
+
+### Commands
+
+    diff password.old password.new
+
+Password for level 18:
+    
+    hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
+
+## Level 18 -> Level 19
+
+Here we cannot establish a continuous connection to the server. Thus we must perform all our actions in the same line as the line to enter the port.
+
+### Commands
+
+    ssh bandit18@bandit.labs.overthewire.org -p 2220 ls
+    ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
+
+Password for level 19:
+    
+    awhqfNnAbc1naukrpqDYcF95h7HoMTrC
+
+
+
+
+
 
 
 
